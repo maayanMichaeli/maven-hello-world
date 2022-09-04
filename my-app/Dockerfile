@@ -1,6 +1,8 @@
-FROM maven:3.8.6-jdk-8 AS build
+FROM ubuntu:latest
 RUN useradd -m -p 123456 maayan
 USER maayan
+
+FROM maven:3.8.6-jdk-8 AS build
 WORKDIR /home/my-app
 COPY src /home/my-app/src
 COPY pom.xml /home/my-app
