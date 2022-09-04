@@ -4,12 +4,12 @@ USER javauser
 
 FROM maven 3.8.6-jdk-8 AS build
 WORKDIR /home/my-app
-COPY ./src ./src
-COPY ./pom.xml .
+COPY src /home/my-app/src
+COPY pom.xml /home/my-app
 RUN mvn -B clean package
 
-FROM build openjdk:8-jre-alpine
+FROM openjdk:8-jre-alpine
 WORKDIR /app
-COPY /target/my-app-1.0.0-SNAPSHOT.jar /app.jar
+COPY --from=build /home/my-app/target/my-app-1.0.0.jar-SNAPSHOT /app.jar
 CMD ["/usr/bin/java", "-jar", "/app.jar"]
 
