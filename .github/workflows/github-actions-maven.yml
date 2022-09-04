@@ -23,4 +23,7 @@ jobs:
      
     - name: tree
       run: tree
+      
+    - name: build docker image
+      run: docker build -t artifact .
 
