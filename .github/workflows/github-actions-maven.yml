@@ -11,21 +11,23 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 8
-      uses: actions/setup-java@v3
-      with:
-        java-version: '8'
-        distribution: 'adopt'
+#     - uses: actions/checkout@v3
+#     - name: Set up JDK 8
+#       uses: actions/setup-java@v3
+#       with:
+#         java-version: '8'
+#         distribution: 'adopt'
+    - name: Setup Docker Buildxx
+      uses: docker/setup-buildx-action@v1
         
-    - name: Build with Maven
-      run: mvn -B clean package -f ./my-app/
+#     - name: Build with Maven
+#       run: mvn -B clean package -f ./my-app/
      
     - name: tree
       run: tree
       
     - name: build docker image
-      run: docker build -t maayanmi/artifact ./my-app/
+      run: docker build -t maayanmi/artifact ./my-app/MultiDockerfile
       
     - name: login dockerhub
       run: docker login -u maayanmi -p dckr_pat_Ss2xH7o8NeJ4zrgENxZH2X3VpWY
