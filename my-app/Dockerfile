@@ -2,7 +2,7 @@ FROM ubuntu:latest
 RUN useradd -m -p Nopassword javauser
 USER javauser
 
-FROM maven 3.8.6-jdk-8 AS build
+FROM maven:3.8.6-jdk-8 AS build
 WORKDIR /home/my-app
 COPY src /home/my-app/src
 COPY pom.xml /home/my-app
