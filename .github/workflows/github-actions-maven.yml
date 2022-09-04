@@ -20,6 +20,4 @@ jobs:
         
     - name: Build with Maven
       run: mvn -B package -f ./my-app/
-    - name: placing jar
-      run: mkdir staging && cp target/*.jar staging
 
