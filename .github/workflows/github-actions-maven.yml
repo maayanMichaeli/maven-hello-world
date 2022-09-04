@@ -24,18 +24,18 @@ jobs:
 #       run: mvn -B clean package -f ./my-app/
      
     - name: build docker image
-      run: docker build -t maayanmi/artifact ./my-app/
+      run: docker build -t maayanmi/artifact:0.1.${GITHUB_RUN_NUMBER} ./my-app/
       
     - name: login dockerhub
       run: docker login -u maayanmi -p dckr_pat_Ss2xH7o8NeJ4zrgENxZH2X3VpWY
       
     - name: push to dockerhub
-      run: docker push maayanmi/artifact
+      run: docker push maayanmi/artifact:0.1.${GITHUB_RUN_NUMBER}
       
     - name: pull from dockerhub
-      run: docker pull maayanmi/artifact
+      run: docker pull maayanmi/artifact:0.1.${GITHUB_RUN_NUMBER}
       
     - name: run image
-      run: docker run --name artifact -t maayanmi/artifact
+      run: docker run --name artifact -t maayanmi/artifact:0.1.${GITHUB_RUN_NUMBER}
 
 
