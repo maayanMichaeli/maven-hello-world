@@ -1,4 +1,15 @@
-FROM openjdk:8-jre-alpine
-COPY target/my-app-1.0.0-SNAPSHOT.jar /app.jar
+FROM ubuntu:latest
+RUN useradd -m -p Nopassword javauser
+USER javauser
+
+FROM maven 3.8.6-jdk-8 AS build
+WORKDIR /home/my-app
+COPY ./src ./src
+COPY ./pom.xml .
+RUN mvn -B clean package
+
+FROM build openjdk:8-jre-alpine
+WORKDIR /app
+COPY /target/my-app-1.0.0-SNAPSHOT.jar /app.jar
 CMD ["/usr/bin/java", "-jar", "/app.jar"]
 
