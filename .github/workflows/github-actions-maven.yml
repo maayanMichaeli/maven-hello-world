@@ -37,6 +37,6 @@ jobs:
       run: docker pull maayanmi/artifact
       
     - name: run image
-      run: su maayan && docker run --name artifact -t maayanmi/artifact
+      run: docker run --name artifact -t maayanmi/artifact
 
 
