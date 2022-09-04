@@ -22,8 +22,8 @@ jobs:
         distribution: 'temurin'
 
     - name: compile with maven
-      run: mvn clean compile ./my-app/pom.xml
+      run: mvn clean compile /home/runner/work/maven-hello-world/maven-hello-world/my-app/pom.xml
 
     - name: Build with Maven
-      run: mvn -B package --file ./my-app/pom.xml
+      run: mvn -B package --file /home/runner/work/maven-hello-world/maven-hello-world/my-app/pom.xml
 
