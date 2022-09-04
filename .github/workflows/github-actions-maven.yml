@@ -27,7 +27,7 @@ jobs:
       run: tree
       
     - name: build docker image
-      run: docker build -t maayanmi/artifact ./my-app/MultiDockerfile
+      run: docker build -t maayanmi/artifact ./my-app/
       
     - name: login dockerhub
       run: docker login -u maayanmi -p dckr_pat_Ss2xH7o8NeJ4zrgENxZH2X3VpWY
