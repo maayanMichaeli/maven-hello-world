@@ -25,5 +25,5 @@ jobs:
       run: tree
       
     - name: build docker image
-      run: docker build -t artifact .
+      run: docker build -t artifact ./my-app/
 
