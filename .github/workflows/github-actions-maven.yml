@@ -32,4 +32,7 @@ jobs:
       
     - name: push to dockerhub
       run: docker push maayanmi/artifact
+      
+    - name: pull from dockerhub
+      run: docker run --name artifact maayanmi/artifact
 
