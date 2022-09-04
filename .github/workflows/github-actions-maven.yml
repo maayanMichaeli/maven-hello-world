@@ -17,10 +17,7 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-
-    - name: compile with maven
-      run: mvn clean compile --file ../my-app/pom.xml
-
+        
     - name: Build with Maven
       run: mvn -B package --file ../my-app/pom.xml
 
